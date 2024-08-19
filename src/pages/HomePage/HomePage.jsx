@@ -1,7 +1,12 @@
-import css from "./HomePage.module.css";
+import MoviesList from "../../components/MoviesList/MoviesList";
+// import css from "./HomePage.module.css";
 
 const HomePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <MoviesList />
+    </div>
+  );
 };
 
 export default HomePage;

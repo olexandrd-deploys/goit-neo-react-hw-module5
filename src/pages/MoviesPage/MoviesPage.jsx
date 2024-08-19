@@ -1,4 +1,4 @@
-import css from "./MoviesPage.module.css";
+// import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   return <div></div>;
