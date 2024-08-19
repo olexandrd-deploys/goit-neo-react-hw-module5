@@ -1,0 +1,16 @@
+.notFoundPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.notFoundPageContainer::after {
+    content: "";
+    display: block;
+    background: url('../../../public/images/vincent.gif');
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+}
