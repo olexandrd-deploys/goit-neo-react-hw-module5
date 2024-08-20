@@ -28,7 +28,7 @@ jobs:
       - name: Build
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
-          ${{ secrets }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
           BASE_PARH=$(echo $GITHUB_REPOSITORY | sed 's|^.*/||g')
           npm run build -- --base=/${BASE_PARH}/
