@@ -1,13 +1,13 @@
-.notFoundPageContainer {
+.loadError {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
 .image {
     width: 200px;
-    height: auto;
+    height: 100%;
     background-size: cover;
     background-position: center;
 }
