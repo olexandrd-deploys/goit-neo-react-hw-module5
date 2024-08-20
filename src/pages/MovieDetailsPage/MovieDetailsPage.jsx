@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import css from "./MovieDetailsPage.module.css";
 import { getMovieDetails } from "../../helpers/api";
@@ -6,6 +6,7 @@ import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import Loader from "../../components/Loader/Loader";
 import LoadError from "../../components/LoadError/LoadError";
 import AdditionalDetails from "../../components/AdditionalDetails/AdditionalDetails";
+import { BackLink } from "../../components/BackLink/BackLink";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -34,7 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.movieDetailsPage}>
-      <Link to={backLinkHref}>Go back</Link>
+      <BackLink to={backLinkHref}>Go Back</BackLink>
       {isLoading && <Loader />}
       {error && <LoadError />}
       {movieDetails && (

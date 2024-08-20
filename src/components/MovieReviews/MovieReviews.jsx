@@ -31,7 +31,7 @@ const MovieReviews = () => {
     <div>
       {isLoading && <Loader />}
       {error && <LoadError />}
-      {movieReview && (
+      {movieReview && movieReview.length > 0 ? (
         <ul>
           {movieReview.map((review) => (
             <li key={review.id}>
@@ -40,6 +40,8 @@ const MovieReviews = () => {
             </li>
           ))}
         </ul>
+      ) : (
+        <p>We don&apos;t have any review for this movie</p>
       )}
     </div>
   );

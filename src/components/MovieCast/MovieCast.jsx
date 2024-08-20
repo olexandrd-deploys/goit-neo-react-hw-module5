@@ -17,7 +17,7 @@ const MovieCast = () => {
       setError(false);
       try {
         const cast = await getMovieCast(movieId);
-        setMovieCast(cast);
+        setMovieCast(cast.filter((actor) => actor.profile_path !== null));
       } catch (error) {
         setError(error);
       } finally {

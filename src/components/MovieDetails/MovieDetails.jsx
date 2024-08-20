@@ -2,7 +2,7 @@ import css from "./MovieDetails.module.css";
 
 const MovieDetails = ({ movie }) => {
   const genres = movie.genres.map((genre) => genre.name).join(", ");
-  const userScore = movie.vote_average * 10;
+  const userScore = Math.floor((Number(movie.vote_average) ?? 0) * 10);
   const releaseYear = movie.release_date.slice(0, 4);
 
   return (
