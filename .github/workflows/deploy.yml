@@ -28,11 +28,11 @@ jobs:
       - name: Build
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
-          API_KEY: ${{ secrets.API_KEY }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
         run: |
-          BASE_PARH=$(echo $GITHUB_REPOSITORY | sed 's|^.*/||g')
-          VITE_APP_BASENAME="/${BASE_PARH}"
-          npm run build -- --base=/${BASE_PARH}/
+          BASE_PATH=$(echo $GITHUB_REPOSITORY | sed 's|^.*/||g')
+          export VITE_APP_BASENAME="/${BASE_PATH}"
+          npm run build -- --base=/${BASE_PATH}/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
