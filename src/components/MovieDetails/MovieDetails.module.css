@@ -1,0 +1,11 @@
+.MovieDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.movieWrapper {
+    display: flex;
+    gap: 20px;
+}

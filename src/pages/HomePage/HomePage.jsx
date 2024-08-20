@@ -19,7 +19,6 @@ const HomePage = () => {
         setTrendingMoviesList(movies);
       } catch (error) {
         setError(error);
-        return [];
       } finally {
         setIsLoading(false);
       }

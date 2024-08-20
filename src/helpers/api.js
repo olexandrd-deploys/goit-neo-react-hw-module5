@@ -17,3 +17,13 @@ export const getTrendingMovies = async () => {
   const response = await axios.get("trending/movie/day", options);
   return response.data.results;
 };
+
+export const getMovieDetails = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}`, options);
+  return response.data;
+};
+
+export const getMovieCast = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}/credits`, options);
+  return response.data.cast;
+};

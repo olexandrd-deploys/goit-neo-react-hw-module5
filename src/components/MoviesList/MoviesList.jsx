@@ -1,20 +1,19 @@
-// const trendingMoviesList = getTrendingMovies();
+import { Link, useLocation } from "react-router-dom";
 
 const MoviesList = ({ list }) => {
+  const location = useLocation();
   return (
-    <ul>{list && list.map(({ id, title }) => <li key={id}>{title}</li>)}</ul>
+    <ul>
+      {list &&
+        list.map(({ id, title }) => (
+          <li key={id}>
+            <Link to={`/movies/${id}`} state={location}>
+              {title}
+            </Link>
+          </li>
+        ))}
+    </ul>
   );
 };
 
 export default MoviesList;
-
-// return (
-//   <div key={movie.id}>
-//     <h2>{movie.title}</h2>
-//     <img
-//       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-//       alt={movie.title}
-//     />
-//     <p>{movie.overview}</p>
-//   </div>
-// );
