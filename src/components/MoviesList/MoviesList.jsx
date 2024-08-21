@@ -5,10 +5,10 @@ const MoviesList = ({ list }) => {
   return (
     <ul>
       {list &&
-        list.map(({ id, title }) => (
+        list.map(({ id, title, release_date }) => (
           <li key={id}>
             <Link to={`/movies/${id}`} state={location}>
-              {title}
+              {title} {`(${release_date.slice(0, 4)})`}
             </Link>
           </li>
         ))}
