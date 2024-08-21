@@ -1,16 +1,16 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { BiArrowBack } from "react-icons/bi";
 import css from "./MovieDetailsPage.module.css";
 import { getMovieDetails } from "../../helpers/api";
 import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import Loader from "../../components/Loader/Loader";
 import LoadError from "../../components/LoadError/LoadError";
-import AdditionalDetails from "../../components/AdditionalDetails/AdditionalDetails";
-import { BackLink } from "../../components/BackLink/BackLink";
+import AdditionalDetailsLinks from "../../components/AdditionalDetails/AdditionalDetailsLinks";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+  const backLinkHrefObj = useRef(location.state ?? "/movies");
   const { movieId } = useParams();
 
   const [movieDetails, setMovieDetails] = useState(null);
@@ -35,14 +35,16 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.movieDetailsPage}>
-      <BackLink to={backLinkHref}>Go Back</BackLink>
+      <Link className={css.link} to={backLinkHrefObj.current}>
+        <BiArrowBack size="14" /> Go Back
+      </Link>
       {isLoading && <Loader />}
       {error && <LoadError />}
       {movieDetails && (
         <div>
           <MovieDetails movie={movieDetails} />
           <hr />
-          <AdditionalDetails />
+          <AdditionalDetailsLinks />
           <hr />
         </div>
       )}
