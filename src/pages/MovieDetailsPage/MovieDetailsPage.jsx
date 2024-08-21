@@ -1,12 +1,17 @@
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import css from "./MovieDetailsPage.module.css";
 import { getMovieDetails } from "../../helpers/api";
-import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import Loader from "../../components/Loader/Loader";
 import LoadError from "../../components/LoadError/LoadError";
-import AdditionalDetailsLinks from "../../components/AdditionalDetails/AdditionalDetailsLinks";
+
+const MovieDetails = lazy(() =>
+  import("../../components/MovieDetails/MovieDetails")
+);
+const AdditionalDetailsLinks = lazy(() =>
+  import("../../components/AdditionalDetailsLinks/AdditionalDetailsLinks")
+);
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -49,7 +54,9 @@ const MovieDetailsPage = () => {
         </div>
       )}
 
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

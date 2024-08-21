@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import MoviesList from "../../components/MoviesList/MoviesList";
+import { lazy, useEffect, useState } from "react";
 import { getTrendingMovies } from "../../helpers/api";
 import css from "./HomePage.module.css";
 import Loader from "../../components/Loader/Loader";
 import LoadError from "../../components/LoadError/LoadError";
+
+const MoviesList = lazy(() => import("../../components/MoviesList/MoviesList"));
 
 const HomePage = () => {
   const [trendingMoviesList, setTrendingMoviesList] = useState(null);

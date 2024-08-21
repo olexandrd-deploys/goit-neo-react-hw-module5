@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import css from "./MoviesPage.module.css";
 import { useSearchParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import LoadError from "../../components/LoadError/LoadError";
 import { searchMovies } from "../../helpers/api";
-import MoviesList from "../../components/MoviesList/MoviesList";
+
+const MoviesList = lazy(() => import("../../components/MoviesList/MoviesList"));
 
 const MoviesPage = () => {
   const [movieList, setMovieList] = useState([]);
