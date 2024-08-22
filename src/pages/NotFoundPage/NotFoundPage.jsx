@@ -8,7 +8,7 @@ const NotFoundPage = () => {
       <img
         className={css.image}
         loading="lazy"
-        src="/public/images/404.gif"
+        src="/images/404.gif"
         alt="Page Not Found"
       />
       <Link to="/">Go back to the main page</Link>
