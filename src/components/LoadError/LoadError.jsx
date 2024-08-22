@@ -8,7 +8,7 @@ const LoadError = () => {
       <img
         className={css.image}
         loading="lazy"
-        src="/public/images/networkError.jpg"
+        src="/images/networkError.jpg"
         alt="Network Error"
       />
     </div>
